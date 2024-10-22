@@ -1,6 +1,43 @@
 import cv2
 import numpy as np
 
+def to_negative(img, threshold):
+    # Convert image to numpy array (OpenCV already does this)
+    img_array = img
+    
+    # Get image dimensions
+    height, width, channels = img_array.shape
+    
+    # Create a new array for the negative image
+    negative_array = np.zeros_like(img_array)
+    
+    # Manually process each pixel
+    for i in range(height):
+        for j in range(width):
+            for c in range(channels):
+                # Invert the pixel value using the provided threshold
+                negative_array[i, j, c] = threshold - img_array[i, j, c]
+    
+    return negative_array
+
+# Contoh penggunaan fungsi:
+# Membaca gambar dengan OpenCV
+img = cv2.imread("cat.png")
+
+# Mengatur ambang batas
+threshold = 255
+
+# Membuat gambar negatif
+negative_img = to_negative(img, threshold)
+
+# Menyimpan hasil gambar negatif
+cv2.imwrite("negative_image.png", negative_img)
+
+# Menampilkan negatif secara berdampingan
+
+cv2.imshow("Negative Image", negative_img)
+
+
 # Bagian pertama: Konversi citra ke grayscale
 # Membaca citra
 citra = cv2.imread("cat.png")
