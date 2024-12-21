@@ -32,7 +32,7 @@ class CannyEdgeDetector:
                 
         return result
 
-    def detect(self, image):
+    def process(self, image):
         if len(image.shape) == 3:
             grayscale = np.dot(image[...,:3], [0.2989, 0.5870, 0.1140])
         else:

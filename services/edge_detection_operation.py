@@ -17,22 +17,22 @@ class EdgeDetectionOperationService:
     def process_canny_image(self, image_path):
         img = validate_image(image_path)
         detector = canny.CannyEdgeDetector()
-        return detector.detect(img)
+        return detector.process(img)
 
     def process_freichen_image(self, image_path):
         img = validate_image(image_path)
         detector = freichen.FreiChenEdgeDetector()
-        return detector.detect_edges(img)
+        return detector.process(img)
 
     def process_gradient_image(self, image_path):
         img = validate_image(image_path)
         detector = gradient.GradientEdgeDetector()
-        return detector.detect(img)
+        return detector.process(img)
 
     def process_laplacian_image(self, image_path):
         img = validate_image(image_path)
         detector = laplacian.LaplacianEdgeDetector()
-        return detector.detect(img)
+        return detector.process(img)
 
     def process_log_image(self, image_path):
         img = validate_image(image_path)

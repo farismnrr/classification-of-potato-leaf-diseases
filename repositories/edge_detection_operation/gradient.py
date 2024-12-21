@@ -4,7 +4,7 @@ class GradientEdgeDetector:
     def __init__(self):
         pass
         
-    def detect(self, image):
+    def process(self, image):
         if len(image.shape) == 3:
             grayscale = 0.299 * image[:,:,0] + 0.587 * image[:,:,1] + 0.114 * image[:,:,2]
         else:
